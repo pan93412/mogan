@@ -1,7 +1,7 @@
 #!/bin/bash
 
-mkdir -p build/ && cd build/
-cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./Mogan.app/Contents/Resources ..
+mkdir -p build/ && cd build/ || exit 1
+cmake -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64" -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./Mogan.app/Contents/Resources .. || exit 2
 make -j12 install
 mv Mogan.app/Contents/Resources/bin Mogan.app/Contents/Resources/share/Xmacs/
 cp /Applications/TeXmacs.app/Contents/Resources/share/TeXmacs/bin/gs Mogan.app/Contents/Resources/share/Xmacs/bin/
