@@ -47,5 +47,5 @@ deploy_app() {
 }
 
 build_mogan_base
-copy_assets
+copy_assets || true
 deploy_app
